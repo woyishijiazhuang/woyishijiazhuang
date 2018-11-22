@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Web</title>
+
+<style>
+.name{text-align:center}
+.t1{background-color:rgba(255,255,255,0.7);height:300px;}
+.t2{height:100px;}
+ol{list-style: none;} 
+</style>
+<script type="text/javascript">
+    var goToWhere = function (where)
+    {
+        var me = this;
+        clearInterval (me.interval);
+        me.site = [];
+        var dom = !/.*chrome.*/i.test (navigator.userAgent) ? document.documentElement : document.body;
+        var height = !!where ? dom.scrollHeight : 0;
+        me.interval = setInterval (function ()
+        {
+            var speed = (height - dom.scrollTop) / 16;
+            if (speed == me.site[0])
+            {
+                clearInterval (me.interval);
+                return null;
+            }
+            dom.scrollTop += speed;
+            me.site.unshift (speed);
+        }, 16);
+    };
+</script>
+</head>
+<body background="001.jpg">
+<table style="width:100%"  align="center">
+<tr style="height:200px" >
+	<td width=20%>
+	</td>
+	<td width=70%>
+	<div class="name"><font size="30" color="8f004f">This is my Web.</font>
+		<br><font size="3" color="292929">这里什么也没有</font></div>
+	</td>
+	<td width=10%></td>
+</tr>
+<tr>  
+	<td  valign="top">
+	<div style="border: 0px solid red;height:100px">
+		<div width=100px style="float:left;"><img height=100px width=100px src="id.ico" alt="头像"/></div>
+		<div><font size="4">jiazhuang</font></div>
+	</div>
+		<ol border="1px">
+		   <li>文章</li>
+		   <li>相册</li>
+		   <li>收集</li>
+		</ol>
+	</td>
+	<td class="t1">
+		<table border="0" width=100%>
+			<tr style="height:80px;">
+			<td width="80px"><img height="80px" width="80px" src="id.ico"/></td>
+			<td>
+				<table border="">
+				<tr height="40px"><th valign="top">标题</th></tr>
+				<tr height="40px"><td><time>时间</time></td></tr>
+				</table>
+			</td>
+			</tr>
+			<tr class="t2"><td></td><td>
+			<p>这里是正文内容</p></td>
+			</tr>
+			<tr class="t2"><td></td><td>
+			<p>这里是尾部</p></td>
+			</tr>
+		</table>
+	</td>
+	<td></td>
+</tr>
+<tr>
+	<td>
+	</td>
+	<td class="t1">
+	</td>
+	<td>
+	</td>
+</tr>
+<tr style="height:200px">
+	<td colspan=3><div class="name"><font color="black">已经到底了</font></div></td>
+</tr>
+
+</table>
+<div class="up" id="back-up" onclick="goToWhere(0)"style="border: 0px solid red; height: 100px; width: 100px; position: fixed; cursor: pointer; right: 10px; bottom: 100px;">
+<a href="#top"><img src="top1.png" alt="top"/></a>
+</div>
+</body>
+</html>
